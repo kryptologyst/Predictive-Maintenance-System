@@ -1,0 +1,39 @@
+# @package _global_
+
+# Random seed for reproducibility
+seed: 42
+
+# Data configuration
+data:
+  n_equipment: 100
+  n_days: 365
+  failure_rate: 0.15
+  sensor_noise: 0.1
+  
+# Model configuration
+models:
+  logistic_regression:
+    random_state: 42
+    max_iter: 1000
+  
+  isolation_forest:
+    contamination: 0.1
+    random_state: 42
+    
+  xgboost:
+    random_state: 42
+    max_depth: 6
+    n_estimators: 100
+    learning_rate: 0.1
+
+# Evaluation configuration
+evaluation:
+  test_size: 0.2
+  cv_folds: 5
+  random_state: 42
+  
+# Business metrics
+business:
+  false_alarm_cost: 100  # Cost of unnecessary maintenance
+  missed_failure_cost: 10000  # Cost of equipment failure
+  maintenance_cost: 500  # Cost of preventive maintenance
